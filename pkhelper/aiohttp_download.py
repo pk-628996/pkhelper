@@ -31,22 +31,31 @@ def spd(start,down):
    ge=down/diff
    speed=f"""{humanbytes(ge)}/s"""
    return speed
+def url2name(url):
+  filename=str(url).split("/")[-1]
+  if len(filename) == 0:
+     filename="DefaultName"
+  else:
+     try:
+       ext=extfind(filename)
+       nai=str(filename).split('.')
+       if len(nai) == 2:
+          filename=f"""{str(filename).split('.')[-2]}.{ext}"""
+       elif len(nai)>2:
+         filename=f"""{str(filename).replace(".","_")}.{ext}"""
+       else:
+         filename=f"""{str(filename)}.{ext}"""
+       if len(filename) > 176:
+              filename="DefaultName"
+       except:
+            pass
+  return filename
 
 async def ddad(download_url, filename=None):
     async with aiohttp.ClientSession() as session:
         async with session.get(download_url, timeout=None) as response:
             if not filename:
-                filename=download_url.rpartition("/")[-1]
-                if len(filename) == 0:
-                    filename="DefaultName"
-                else:
-                   try:
-                      ext=extfind(filename)
-                      filename=f"""{str(filename).split('.')[-2]}.{ext}"""
-                      if len(filename) > 176:
-                        filename="DefaultName"
-                   except:
-                      pass
+                filename=url2name(download_url)
             filename = os.path.join(os.getcwd(), filename)
             total_size = int(response.headers.get("content-length", 1)) or 1024
             downloaded_size = 0
@@ -66,3 +75,6 @@ async def ddad(download_url, filename=None):
 def direct_dl(url):
  loop=asyncio.get_event_loop()
  loop.run_until_complete(ddad(url))
+ f=url2name(url)
+ filename = os.path.join(os.getcwd(), f)
+ return filename
