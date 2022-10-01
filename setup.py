@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from setuptools import setup, find_packages
-__version__=0.496
+__version__=0.1
 
 def get_long_description():
     with open("README.md") as f:
@@ -16,14 +16,14 @@ def get_long_description():
         return long_description
 
 setup(
-    name="gdownh",
+    name="pkhelper",
     version=f"{__version__}",
-    packages=['gdownh'],
-    py_modules=['gdownh'],
-    description="Google Drive direct download of big files.",
+    packages=['pkhelper'],
+    py_modules=['pkhelper'],
+    description="A module for some common things",
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
     download_url='https://github.com/pk-628996/gdownh/archive/refs/heads/main.zip',
     install_requires=['gdown','pytube','aiohttp'],
-    entry_points={"console_scripts": ["gdownh=gdownh.cli:main"]},
+    entry_points={"console_scripts": ["pkhelper=pkhelper.cli:main"]},
 )
