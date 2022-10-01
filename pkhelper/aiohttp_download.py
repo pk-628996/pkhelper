@@ -74,7 +74,5 @@ async def ddad(download_url, filename=None):
 
 def direct_dl(url):
  loop=asyncio.get_event_loop()
- loop.run_until_complete(ddad(url))
- f=url2name(url)
- filename = os.path.join(os.getcwd(), f)
- return filename
+ r=loop.run_until_complete(ddad(url))
+ return r
