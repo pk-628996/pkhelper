@@ -18,13 +18,13 @@ pip install pkhelper
 <br>
 
 You can also use it in script.<br>
-```
+```python
 from pkhelper import gdrivedownload
  file=gdrivedownload(url)
 ```
 
 As Simple as this<br>
-```
+```python
 from pkhelper import direct_dl
   file=direct_dl(url)
 ```
