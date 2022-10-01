@@ -6,7 +6,7 @@ import pkg_resources
 from .aiohttp_download import *
 from .gdown_helper import *
 
-distribution = pkg_resources.get_distribution("gdownh")
+distribution = pkg_resources.get_distribution("pkhelper")
 
 class _ShowVersionAction(argparse.Action):
     def __init__(self, *args, **kwargs):
