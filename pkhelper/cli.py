@@ -57,7 +57,15 @@ links Examples: gdownh --gdrive your gdrive link , gdownh --ddl your direct down
     if args.gdrive:
         filename = gdrivedownload(args.url_or_id)
         success = filename
-
+    else:
+      url=args.url_or_id
+      if "drive.google" in str(url):
+        filename = gdrivedownload(args.url_or_id)
+        success = filename
+      else:
+         filename = direct_dl(
+            url=args.url_or_id)
+         success = filename
     if not success:
         sys.exit(1)
 
