@@ -34,7 +34,7 @@ def main():
         help="display version",
     )
     parser.add_argument(
-        "url_or_id", help="""Just call gdownh with --gdrive tag to 
+        "url", help="""Just call gdownh with --gdrive tag to 
 download gdrive links & --ddl tag for direct download 
 links Examples: gdownh --gdrive your gdrive link , gdownh --ddl your direct download link"""
     )
@@ -52,19 +52,19 @@ links Examples: gdownh --gdrive your gdrive link , gdownh --ddl your direct down
  
     if args.ddl:
         filename = direct_dl(
-            url=args.url_or_id)
-        success = 6
+            url=args.url)
+        success = filename
     if args.gdrive:
-        filename = gdrivedownload(args.url_or_id)
+        filename = gdrivedownload(args.url)
         success = filename
     else:
-      url=args.url_or_id
+      url=args.url
       if "drive.google" in str(url):
-        filename = gdrivedownload(args.url_or_id)
+        filename = gdrivedownload(url)
         success = filename
       else:
          filename = direct_dl(
-            url=args.url_or_id)
+            url=args.url)
          success = filename
     if not success:
         sys.exit(1)
