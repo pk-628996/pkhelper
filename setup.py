@@ -23,7 +23,7 @@ setup(
     description="A module for some common things",
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
-    download_url='https://github.com/pk-628996/gdownh/archive/refs/heads/main.zip',
+    download_url=f'https://github.com/pk-628996/pkhelper/archive/refs/tags/v{__version__}-alpha.zip',
     url='https://github.com/pk-628996/pkhelper',
     license="MIT",
     install_requires=['gdown','pytube','aiohttp'],
