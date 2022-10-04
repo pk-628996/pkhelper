@@ -51,37 +51,27 @@ links Examples: gdownh --gdrive your gdrive link , gdownh --ddl your direct down
     args = parser.parse_args()
  
     if args.ddl:
-      try:
         filename = direct_dl(
             url=args.url)
         success = filename
-      except Exception as e:
-         print(e)
-         success=e
     if args.gdrive:
-      try:
+      
         filename = gdrivedownload(args.url)
         success = filename
-      except Exception as e:
-         print(e)
-         success=e
+      
     else:
       url=args.url
       if "drive.google" in str(url):
-       try:
+       
         filename = gdrivedownload(url)
         success = filename
-       except Exception as e:
-         print(e)
-         success=e
+       
       else:
-       try:
+       
          filename = direct_dl(
             url=args.url)
          success = filename
-       except Exception as e:
-         print(e)
-         success=e
+       
     if not success:
         sys.exit(1)
 
