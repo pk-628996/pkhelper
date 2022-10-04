@@ -24,6 +24,8 @@ setup(
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
     download_url='https://github.com/pk-628996/gdownh/archive/refs/heads/main.zip',
+    url='https://github.com/pk-628996/pkhelper',
+    license="MIT",
     install_requires=['gdown','pytube','aiohttp'],
     entry_points={"console_scripts": ["pkhelper=pkhelper.cli:main"]},
 )
