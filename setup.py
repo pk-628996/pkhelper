@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from setuptools import setup, find_packages
-__version__="0.0.15"
+__version__="0.0.16"
 
 def get_long_description():
     with open("README.md") as f:
