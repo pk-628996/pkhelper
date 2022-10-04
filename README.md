@@ -28,7 +28,10 @@ As Simple as this<br>
 from pkhelper import direct_dl
   file=direct_dl(url)
 ```
-
 As  simple as this.
+```python
+from pkhelper import direct_dl_async as ddl_a
+   file=ddl_a(url)
+```
+As Simple as this.
 <br>
-Enjoy
