@@ -49,7 +49,27 @@ def url2name(url):
               filename="DefaultName"
      except:
             pass
+     try:
+       filename=str(filename).replace("%20","_").replace("+","_")
+     except:
+        pass
   return filename
+
+async def direct_dl_async(download_url, filename=None):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(download_url, timeout=None) as response:
+            if not filename:
+                filename=url2name(download_url)
+            filename = os.path.join(os.getcwd(), filename)
+            total_size = int(response.headers.get("content-length", 1)) or 1024
+            downloaded_size = 0
+            with open(filename, "wb") as f:
+                start=time.time()
+                async for chunk in response.content.iter_chunked(8*1024*1024):
+                    if chunk:
+                        f.write(chunk)
+                        downloaded_size += len(chunk)
+            return filename
 
 async def ddad(download_url, filename=None):
     async with aiohttp.ClientSession() as session:
