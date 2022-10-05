@@ -14,7 +14,7 @@ $ pkhelper --ddl your direct link
 #### Can download gdrive files from command line.
 <br>**Usage:**<br>
 ```bash 
-$ pkhelper --gdrive you link
+$ pkhelper --gdrive your link
 ```
 <br><br>
 
