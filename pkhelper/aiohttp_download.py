@@ -1,5 +1,5 @@
 import os,aiohttp,asyncio,sys,tqdm,time
-exts=['mkv','mp4','mp3','m4a','mov','pdf','jpg','png','webm','weba','webp','zip','rar','mobi','epub','winzip','jpeg','apk','m4v']
+exts=['mkv','mp4','mp3','m4a','mov','pdf','jpg','png','webm','weba','webp','zip','rar','mobi','epub','winzip','jpeg','apk','m4v','mka']
 
 def extfind(filename):
  ext=filename.split(".")[-1]
