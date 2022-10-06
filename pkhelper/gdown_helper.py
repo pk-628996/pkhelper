@@ -12,7 +12,10 @@ def link2id(url):
    return u
  else:
    return url
-
+"""
+from pkhelper import gdrivedownload
+   file=gdrivedownload(url)
+"""
 
 def gdrivedownload(url):
    tr=link2id(url)
