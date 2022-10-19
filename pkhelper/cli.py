@@ -51,11 +51,14 @@ links Examples: gdownh --gdrive your gdrive link , gdownh --ddl your direct down
     args = parser.parse_args()
  
     if args.ddl:
+      try:
         filename = direct_dl(
             url=args.url)
         success = filename
+      except KeyboardInterrupt:
+        print("Process Cancelled")
+        sys.exit()
     if args.gdrive:
-      
         filename = gdrivedownload(args.url)
         success = filename
       
@@ -67,11 +70,13 @@ links Examples: gdownh --gdrive your gdrive link , gdownh --ddl your direct down
         success = filename
        
       else:
-       
+       try:
          filename = direct_dl(
             url=args.url)
          success = filename
-       
+       except KeyboardInterrupt:
+        print("Process Cancelled")
+        sys.exit()
     if not success:
         sys.exit(1)
 
