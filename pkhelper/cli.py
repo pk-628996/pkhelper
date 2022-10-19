@@ -56,7 +56,7 @@ links Examples: gdownh --gdrive your gdrive link , gdownh --ddl your direct down
             url=args.url)
         success = filename
       except KeyboardInterrupt:
-        print("Process Cancelled")
+        print("\nProcess Cancelled")
         sys.exit()
     if args.gdrive:
         filename = gdrivedownload(args.url)
@@ -75,7 +75,7 @@ links Examples: gdownh --gdrive your gdrive link , gdownh --ddl your direct down
             url=args.url)
          success = filename
        except KeyboardInterrupt:
-        print("Process Cancelled")
+        print("\nProcess Cancelled")
         sys.exit()
     if not success:
         sys.exit(1)
