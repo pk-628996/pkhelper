@@ -48,7 +48,7 @@ def url2name(url):
        else:
          filename=f"""{str(filename)}.{ext}"""
        if len(filename) > 176:
-              filename="DefaultName"+f".{ext}"
+              filename="DefaultName" + "." + ext 
      except:
             pass
      try:
