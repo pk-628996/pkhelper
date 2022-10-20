@@ -1,5 +1,6 @@
 import os,aiohttp,asyncio,sys,tqdm,time
-exts=['mkv','mp4','mp3','m4a','mov','3gp','3gpp','pdf','jpg','png','webm','weba','webp','zip','rar','mobi','epub','winzip','jpeg','apk','m4v','mka']
+exts=['mkv','mp4','mp3','m4a','mov','3gp','3gpp','rar','7z','pdf','jpg','png','webm','weba','webp','zip','rar','mobi','epub','winzip','jpeg','apk','m4v','mka']
+from urllib.parse import unquote
 
 def extfind(filename):
  ext=filename.split(".")[-1]
@@ -31,13 +32,14 @@ def spd(start,down):
    ge=down/diff
    speed=f"""{humanbytes(ge)}/s"""
    return speed
+
 def url2name(url):
-  filename=str(url).split("/")[-1]
+  filename=str(unquote(url)).split("/")[-1]
   if len(filename) == 0:
      filename="DefaultName"
   else:
      try:
-       ext=extfind(filename)
+       ext=extfind(unquote(filename))
        nai=str(filename).split('.')
        if len(nai) == 2:
           filename=f"""{str(filename).split('.')[-2]}.{ext}"""
@@ -50,7 +52,7 @@ def url2name(url):
      except:
             pass
      try:
-       filename=str(filename).replace("%20","_").replace("+","_")
+       filename=str(unquote(str(filename))).replace("+","_")
      except:
         pass
   return filename
