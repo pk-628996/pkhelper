@@ -26,6 +26,6 @@ setup(
     download_url=f'https://github.com/pk-628996/pkhelper/archive/refs/tags/v{__version__}-alpha.zip',
     url='https://github.com/pk-628996/pkhelper',
     license="MIT",
-    install_requires=['gdown','pytube','aiohttp','hachoir','cloudscraper','beautifulsoup4'],
+    install_requires=['gdown','pytube','aiohttp','hachoir','cloudscraper','beautifulsoup4','pyshorteners'],
     entry_points={"console_scripts": ["pkhelper=pkhelper.cli:main"]},
 )
