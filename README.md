@@ -52,7 +52,10 @@ You can generate direct download links of all branches of a public github repo
 from pkhelper import repo_ddl_link_gen
    ddl_list=repo_ddl_link_gen("repository link")
 ```
+To upload to gofile
+```python
 from pkhelper import *
   json_text,download_page=await gofi_uploader(file)
   print(download_page)
+```
 
