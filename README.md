@@ -36,3 +36,21 @@ from pkhelper import direct_dl_async as ddl_a
 ```
 As Simple as this.
 <br>
+You can run bash commands in python and get output
+```python
+from pkhelper import bash
+  output=bash("ffmpeg")
+```
+As simple as this 
+If you want async bash command then
+```python
+from pkhelper import bash_async
+   output=await bash_async("ffmpeg")
+```
+You can generate direct download links of all branches of a public github repo
+```python
+from pkhelper import repo_ddl_link_gen
+   ddl_list=repo_ddl_link_gen("repository link")
+```
+
+
