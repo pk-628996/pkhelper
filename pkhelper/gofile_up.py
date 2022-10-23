@@ -1,8 +1,11 @@
 from aiohttp import FormData
-import aiohttp,asyncio
+import aiohttp,asyncio,requests,json
 
 timeout = aiohttp.ClientTimeout(total=1600)
-async def gofi_uploader(file,host):
+async def gofi_uploader(file):
+  ser=requests.get("https://api.gofile.io/getServer")
+  server=ser.json()["data"]["server"]
+  host=f"https://{server}.gofile.io/uploadFile"
   async with aiohttp.ClientSession(timeout=timeout) as session:
    
     data = FormData()
