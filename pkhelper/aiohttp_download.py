@@ -36,7 +36,7 @@ def spd(start,down):
 
 def url2name(url):
   dl_header=rhead(url).headers
-  filename=str(dl_header.get("content-disposition")).strip('="')[-1].replace('"',"").encode('raw-unicode-escape').decode('utf-8')
+  filename=str(dl_header.get("content-disposition")).split('filename="')[-1].replace('"',"").encode('raw-unicode-escape').decode('utf-8')
   if not filename:
     filename=str(unquote(url)).split("/")[-1]
   if len(filename) == 0:
