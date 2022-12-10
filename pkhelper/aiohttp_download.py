@@ -1,5 +1,5 @@
 import os,aiohttp,asyncio,sys,time
-from requests import rhead
+from requests import head as rhead
 exts=['mkv','mp4','mp3','m4a','mov','3gp','3gpp','rar','7z','pdf','jpg','png','webm','weba','webp','zip','rar','mobi','epub','winzip','jpeg','apk','m4v','mka']
 from urllib.parse import unquote
 
