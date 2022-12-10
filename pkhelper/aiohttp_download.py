@@ -1,4 +1,5 @@
-import os,aiohttp,asyncio,sys,tqdm,time
+import os,aiohttp,asyncio,sys,time
+from requests import rhead
 exts=['mkv','mp4','mp3','m4a','mov','3gp','3gpp','rar','7z','pdf','jpg','png','webm','weba','webp','zip','rar','mobi','epub','winzip','jpeg','apk','m4v','mka']
 from urllib.parse import unquote
 
@@ -34,7 +35,10 @@ def spd(start,down):
    return speed
 
 def url2name(url):
-  filename=str(unquote(url)).split("/")[-1]
+  dl_header=rhead(url)
+  filename=str(dl_header.get("content-disposition")).strip('="')[-1].replace('"').encode('raw-unicode-escape').decode('utf-8')
+  if not filename:
+    filename=str(unquote(url)).split("/")[-1]
   if len(filename) == 0:
      filename="DefaultName"
   else:
