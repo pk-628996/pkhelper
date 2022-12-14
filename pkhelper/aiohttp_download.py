@@ -34,11 +34,11 @@ def spd(start,down):
    speed=f"""{humanbytes(ge)}/s"""
    return speed
 
+#dl_header=rhead(url).headers
+#filename=str(dl_header.get("content-disposition")).split('filename="')[-1].replace('"',"").encode('raw-unicode-escape').decode('utf-8')
+
 def url2name(url):
-  dl_header=rhead(url).headers
-  filename=str(dl_header.get("content-disposition")).split('filename="')[-1].replace('"',"").encode('raw-unicode-escape').decode('utf-8')
-  if not filename:
-    filename=str(unquote(url)).split("/")[-1]
+  filename=str(unquote(url)).split("/")[-1]
   if len(filename) == 0:
      filename="DefaultName"
   else:
